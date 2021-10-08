@@ -18,6 +18,7 @@ export class EmployeeOrgApp {
     return subs.subordinate.reduce(
       (ret: Employee[], cur: Employee) => [
         ...(ret ?? []),
+        cur,
         ...(this.values(cur) ?? []),
       ],
       [],
