@@ -14,7 +14,7 @@ export class EmployeeOrgApp {
   }
 
   // make flat employee array
-  public values(subs: Employee): Employee[] {
+  public values(subs: Employee = this._ceo): Employee[] {
     return subs.subordinate.reduce(
       (ret: Employee[], cur: Employee) => [
         ...(ret ?? []),
@@ -27,21 +27,19 @@ export class EmployeeOrgApp {
 
   // get employee at
   public getAt(id: number): Employee {
-    const subs = this.values(this._ceo)
-    return subs.reduce((ret: Employee, cur: Employee): Employee => {
-      if (ret.uniqueId > 0) {
-        return ret
+    const subs = this.values()
+    for (let index = 0; index < subs.length; index++) {
+      const element: Employee = subs[index]
+      if (element.uniqueId === id) {
+        return element
       }
-      if (cur.uniqueId === id) {
-        return cur
-      }
-      return ret
-    }, defaultEmployee)
+    }
+    return defaultEmployee
   }
 
   // get employee super
   public getSuper(id: number): Employee {
-    const subs = this.values(this._ceo)
+    const subs = this.values()
     return subs.reduce((ret: Employee, cur: Employee): Employee => {
       if (
         // check if in subs
