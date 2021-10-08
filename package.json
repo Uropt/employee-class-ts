@@ -1,0 +1,25 @@
+{
+  "name": "employee-class-ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./employee/index.js",
+  "scripts": {
+    "test": "nodemon ./employee/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Uropt/employee-class-ts.git"
+  },
+  "keywords": [
+    "typescript"
+  ],
+  "author": "HDream",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Uropt/employee-class-ts/issues"
+  },
+  "homepage": "https://github.com/Uropt/employee-class-ts#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.13"
+  }
+}
